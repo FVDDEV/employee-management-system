@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: employee-management-system
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        message-converter: jackson2JsonMessageConverter
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 2000
+          multiplier: 2
+          max-interval: 10000
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: falguni.dattani.11@gmail.com
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            trust: "*"
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+
